@@ -8,18 +8,23 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Button } from "react-native-paper";
+import DropDown from "react-native-paper-dropdown";
+import { LiftSelectList } from "../constants/Lifts";
 
 function OneRepMax({ navigation }) {
   const [weight, setWeight] = React.useState();
   const [reps, setReps] = React.useState();
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [lift, setLift] = useState("");
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <SafeAreaView>
+        <Text style={styles.ORMTitle}>One Rep Max</Text>
         <View>
           <TextInput
             keyboardType="numeric"
-            style={{ marginBottom: 10 }}
+            style={styles.Input}
             label="Reps"
             value={reps}
             onChangeText={(text) => setReps(text)}
@@ -27,6 +32,7 @@ function OneRepMax({ navigation }) {
         </View>
         <View>
           <TextInput
+            style={styles.Input}
             keyboardType="numeric"
             label="Weight"
             value={weight}
@@ -34,7 +40,19 @@ function OneRepMax({ navigation }) {
           />
         </View>
         <View>
-          <Text style={styles.ORMTitle}>One Rep Max</Text>
+          <DropDown
+            style={styles.Input}
+            label={"Lift"}
+            mode={"flat"}
+            visible={showDropDown}
+            showDropDown={() => setShowDropDown(true)}
+            onDismiss={() => setShowDropDown(false)}
+            value={lift}
+            setValue={setLift}
+            list={LiftSelectList}
+          />
+        </View>
+        <View>
           <Text style={styles.ORMDisplay}>{DisplayORM(reps, weight)}</Text>
           <Button
             style={styles.AdjustButton}
@@ -57,18 +75,24 @@ function DisplayORM(reps, weight) {
 }
 
 const styles = StyleSheet.create({
+  Input: {
+    marginBottom: 10,
+  },
   ORMTitle: {
-    marginTop: 20,
+    fontSize: 25,
     alignSelf: "center",
+    marginBottom: 50,
   },
   ORMDisplay: {
+    marginTop: 50,
     fontSize: 150,
     alignSelf: "center",
   },
   AdjustButton: {
+    marginTop: 20,
     alignSelf: "center",
-    width: "75%"
-  }
+    width: "75%",
+  },
 });
 
 export default OneRepMax;
