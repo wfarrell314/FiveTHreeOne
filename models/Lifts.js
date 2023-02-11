@@ -23,3 +23,8 @@ const LIFTS = {
         value: LIFTS.BACKSQUAT,
       },
   ]
+
+  /*
+   Cycyle -- CratedDate
+      16 lifts -- Lift Date -- Week -- AMRAP -- Type -- ORM
+  */
