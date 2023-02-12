@@ -15,7 +15,7 @@ const PRs = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <SafeAreaView style={tw`flex-1`}>
                 <Provider>
-                    <View styles={tw`flex flex-col`}>
+                    <View style={tw`flex flex-col`}>
                         {Categories.map(category => (
                             <View style={tw`mx-4`} key={category.title}>
                                 <Text style={tw`text-xl font-semibold underline`}>{category.title}</Text>

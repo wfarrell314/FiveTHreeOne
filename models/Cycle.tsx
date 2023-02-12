@@ -10,7 +10,7 @@ export const NewCycle = {
 };
 
 function AddWeeks() {
-  let weeks = [];
+  let weeks: any = [];
 
   for (let i = 0; i < 4; i++) {
     weeks = [...weeks, Week(i + 1)];
@@ -19,13 +19,13 @@ function AddWeeks() {
   return weeks;
 }
 
-function Week(weekNumber) {
+function Week(weekNumber: any) {
   return LiftList.map((x, i) => {
     return Lift(x.value, weekNumber);
   });
 }
 
-function Lift(type, week) {
+function Lift(type: any, week: any) {
   return {
     liftDate: new Date(),
     type: type,

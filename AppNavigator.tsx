@@ -4,8 +4,9 @@ import HomeScreen from "./pages/Home";
 import OneRepMax from "./pages/OneRepMax";
 import MainLifts from "./pages/MainLifts";
 import PRs from "./pages/PRs";
+import { RootStackParamList } from "./types/Core";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function AppNavigator() {
   return (

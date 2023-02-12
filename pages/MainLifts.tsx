@@ -13,13 +13,13 @@ import { GridTitles, GridWeeks, GridReps, GridSets } from "../constants/Lifts";
 
 const MainLifts = () => {
     const [max, setMax] = React.useState('0');
-    const calc = (percentage) => {
+    const calc = (percentage: number): string => {
         if (Number(max) > 999) {
             return 'NO';
         }
-        const ninetyPercent = Number(max) * .9;
-        const roundedNumber = Math.round(((ninetyPercent / 100) * percentage).toFixed(0) / 5) * 5;
-        return String(roundedNumber);
+        const ninetyPercent: number = Number(max) * .9;
+        const roundedNumberInStringFormat: string = (Math.round(((ninetyPercent / 100) * percentage) / 5) * 5).toFixed(0);
+        return roundedNumberInStringFormat;
     };
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -33,7 +33,7 @@ const MainLifts = () => {
                         value={max}
                         onChangeText={(x) => setMax(x)}
                     />
-                    <View styles={styles.Grid}>
+                    <View style={styles.Grid}>
                         <Row>
                             {GridTitles.map(title => (
                                 <Column key={title}>
@@ -118,13 +118,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const Row = ({ children }) => {
+const Row = ({ children }: any) => {
     return (
         <View style={tw`flex-row`}>{children}</View>
     );
 }
 
-const Column = ({ children }) => {
+const Column = ({ children }: any) => {
     return (
         <View style={styles.Col}>{children}</View>
     );

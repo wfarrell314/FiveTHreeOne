@@ -1,11 +1,12 @@
-import { Button, Text, View, Pressable } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { NewCycle } from "../models/Cycle";
 import { storeData, getData, getAllKeys, clearAll } from "../localDB/localDB";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { HomeScreenNavigationProps } from "../types/Core";
 
-function HomeScreen({ navigation }) {
+function HomeScreen({ navigation }: HomeScreenNavigationProps) {
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
       <View style={tw`flex flex-col h-full justify-between`}>

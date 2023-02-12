@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 // Using a timestamp as the key when saving a Cycle
-export async function storeData(value) {
+export async function storeData(value: any) {
   try {
     const jsonValue = JSON.stringify(value)
     await AsyncStorage.setItem(new Date().toLocaleString(), jsonValue)
@@ -14,7 +14,7 @@ export async function storeData(value) {
   }
 }
 
-export async function getData(id) {
+export async function getData(id: any) {
   try {
     const jsonValue = await AsyncStorage.getItem(id)
     return jsonValue != null ? JSON.parse(jsonValue) : null
@@ -24,7 +24,7 @@ export async function getData(id) {
 }
 
 export async function getAllKeys() {
-  let keys = []
+  let keys: any = []
   try {
     keys = await AsyncStorage.getAllKeys()
   } catch(e) {

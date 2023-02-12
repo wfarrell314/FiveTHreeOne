@@ -10,8 +10,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Button, Provider, Modal, Portal } from "react-native-paper";
 import RadioButtonRN from "radio-buttons-react-native";
 import { LiftList } from "../constants/Lifts";
+import { HomeScreenNavigationProps } from "../types/Core";
 
-function OneRepMax({ navigation }) {
+function OneRepMax({ navigation }: HomeScreenNavigationProps) {
   const [weight, setWeight] = React.useState();
   const [reps, setReps] = React.useState();
   const [checked, setChecked] = React.useState(undefined);
@@ -38,7 +39,7 @@ function OneRepMax({ navigation }) {
                 style={styles.RepsInput}
                 label="Reps"
                 value={reps}
-                onChangeText={(text) => setReps(text)}
+                onChangeText={(text: any) => setReps(text)}
               />
             </View>
             <View>
@@ -47,7 +48,7 @@ function OneRepMax({ navigation }) {
                 style={styles.WeightInput}
                 label="Weight"
                 value={weight}
-                onChangeText={(text) => setWeight(text)}
+                onChangeText={(text: any) => setWeight(text)}
               />
             </View>
           </View>
@@ -75,7 +76,7 @@ function OneRepMax({ navigation }) {
             <View>
               <RadioButtonRN
                 data={getRadioButtonData()}
-                selectedBtn={(e) => setChecked(e)}
+                selectedBtn={(e: any) => setChecked(e)}
               />
               <Button
                 disabled={checked ? false : true}
@@ -97,7 +98,7 @@ function OneRepMax({ navigation }) {
   );
 }
 
-function GetORMValue(reps, weight) {
+function GetORMValue(reps: any, weight: any) {
   const max = Math.round(weight * (1 + 0.0333 * reps));
   return max ? max : "";
 }
