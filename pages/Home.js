@@ -1,12 +1,12 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Cycle } from "../models/Cycle";
+import tw from 'twrnc';
 
 function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.HomeScreen}>
+    <SafeAreaView style={tw`bg-white flex-1 items-center justify-center`}>
       <View>
-        <Text>Home Screen</Text>
+        <Text style={tw`text-center text-3xl font-bold`}>Home Screen</Text>
         <Button
           title="Calculate One Rep Max"
           onPress={() => navigation.navigate("OneRepMax")}
@@ -15,18 +15,13 @@ function HomeScreen({ navigation }) {
           title="Main Lifts"
           onPress={() => navigation.navigate("MainLifts")}
         />
+        <Button
+          title="PRs"
+          onPress={() => navigation.navigate("PersonalRecords")}
+        />
       </View>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  HomeScreen: {
-    backgroundColor: "white",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default HomeScreen;

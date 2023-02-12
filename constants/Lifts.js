@@ -30,8 +30,30 @@ export const LIFTS = {
 
   export const GridReps = ['5', '3', '5/3/1', '5'];
 
-  // LOL
   export const GridSets = 3;
+
+  export const Categories = [
+    {
+      title: 'Squats',
+      subCategories: ['Back Squat', 'Front Squat', 'Box Squat', 'Overhead Squat']
+    },
+    {
+      title: 'Presses',
+      subCategories: ['Bench Press', 'Overhead Press', 'Seated Press']
+    },
+    {
+      title: 'Deadlifts',
+      subCategories: ['Deadlifts', 'Romanian Deadlifts', 'Sumo Deadlifts']
+    },
+    {
+      title: 'Olympic',
+      subCategories: ['Power Cleans', 'Hang Power Cleans', 'Snatches']
+    },
+    {
+      title: 'Bodyweight',
+      subCategories: ['Pushups', 'Pullups', 'Dips', 'Chinups', 'Squats']
+    },
+  ];
 
   /*
    Cycyle -- CratedDate
