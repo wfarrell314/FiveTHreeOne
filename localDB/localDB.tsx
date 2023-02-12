@@ -34,6 +34,27 @@ export async function getAllKeys() {
 return keys
 }
 
+export const setPR = async (lift: string, weight: string) => {
+  try {
+    await AsyncStorage.setItem(`${lift}`, `${weight}`)
+  } catch(e) {
+    console.log(e);
+  }
+}
+
+export const getPR = async (lift: string) => {
+  try {
+    const response = await AsyncStorage.getItem(`${lift}`);
+    if (response !== null) {
+      return response;
+    } else {
+      console.log('nothing is there...');
+    }
+  } catch(e) {
+    console.log(e);
+  }
+}
+
 // This will essentially remove everything from native storage and wipe the store
 export async function clearAll() {
   try {
