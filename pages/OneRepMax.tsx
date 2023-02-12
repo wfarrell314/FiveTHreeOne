@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Keyboard,
   Text,
@@ -11,6 +11,7 @@ import { TextInput, Button, Provider, Modal, Portal } from "react-native-paper";
 import RadioButtonRN from "radio-buttons-react-native";
 import { LiftList } from "../constants/Lifts";
 import { HomeScreenNavigationProps } from "../types/Core";
+import tw from "twrnc";
 
 function OneRepMax({ navigation }: HomeScreenNavigationProps) {
   const [weight, setWeight] = React.useState();
@@ -29,14 +30,14 @@ function OneRepMax({ navigation }: HomeScreenNavigationProps) {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <SafeAreaView style={styles.Container}>
+      <SafeAreaView style={tw`flex-1`}>
         <Provider>
-          <Text style={styles.ORMTitle}>Calculate One Rep Max</Text>
-          <View style={styles.InputContainer}>
+          <Text style={tw`text-2xl self-center mb-12`}>Calculate One Rep Max</Text>
+          <View style={tw`flex flex-row flex-wrap justify-center`}>
             <View>
               <TextInput
                 keyboardType="numeric"
-                style={styles.RepsInput}
+                style={tw`mr-12 w-36`}
                 label="Reps"
                 value={reps}
                 onChangeText={(text: any) => setReps(text)}
@@ -45,7 +46,7 @@ function OneRepMax({ navigation }: HomeScreenNavigationProps) {
             <View>
               <TextInput
                 keyboardType="numeric"
-                style={styles.WeightInput}
+                style={tw`w-36`}
                 label="Weight"
                 value={weight}
                 onChangeText={(text: any) => setWeight(text)}
@@ -53,12 +54,12 @@ function OneRepMax({ navigation }: HomeScreenNavigationProps) {
             </View>
           </View>
           <View>
-            <Text style={styles.ORMDisplay}>{OMRValue}</Text>
+            <Text style={tw`mt-12 text-9xl self-center`}>{OMRValue}</Text>
             <Button
               buttonColor="#6f47bf"
-              contentStyle={{ height: styles.AdjustButton.height }}
+              contentStyle={tw`h-20`}
               disabled={OMRValue ? false : true}
-              style={styles.AdjustButton}
+              style={tw`self-center justify-center mt-5 w-72 h-20`}
               icon="pencil"
               mode="contained"
               onPress={showModal}
@@ -71,7 +72,7 @@ function OneRepMax({ navigation }: HomeScreenNavigationProps) {
           <Modal
             visible={visible}
             onDismiss={hideModal}
-            contentContainerStyle={styles.ModalStyle}
+            contentContainerStyle={tw`bg-white p-5 self-center w-98`}
           >
             <View>
               <RadioButtonRN
@@ -81,8 +82,8 @@ function OneRepMax({ navigation }: HomeScreenNavigationProps) {
               <Button
                 disabled={checked ? false : true}
                 buttonColor="#6f47bf"
-                contentStyle={{ height: styles.confirmButton.height }}
-                style={styles.confirmButton}
+                contentStyle={tw`h-12`}
+                style={tw`justify-center mt-5 self-center w-52 h-12`}
                 mode="contained"
                 onPress={() => {
                   console.log("Update Pressed");
@@ -108,58 +109,5 @@ function getRadioButtonData() {
     return { label: x.label };
   });
 }
-
-
-const styles = StyleSheet.create({
-  Container: {
-    flex: 1,
-  },
-  ORMTitle: {
-    fontSize: 25,
-    alignSelf: "center",
-    marginBottom: 50,
-  },
-  ORMDisplay: {
-    marginTop: 50,
-    fontSize: 150,
-    alignSelf: "center",
-  },
-  AdjustButton: {
-    justifyContent: "center",
-    marginTop: 20,
-    alignSelf: "center",
-    width: 300,
-    height: 75,
-  },
-  InputContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  RepsInput: {
-    marginRight: 50,
-    width: 150,
-  },
-  WeightInput: {
-    width: 150,
-  },
-  ModalStyle: {
-    backgroundColor: "white",
-    padding: 20,
-    alignSelf: "center",
-    width: 400,
-  },
-  Modalheading: {
-    fontSize: 20,
-    marginBottom: 20,
-  },
-  confirmButton: {
-    justifyContent: "center",
-    marginTop: 20,
-    alignSelf: "center",
-    width: 200,
-    height: 50,
-  },
-});
 
 export default OneRepMax;
