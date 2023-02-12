@@ -8,7 +8,7 @@ import { HomeScreenNavigationProps } from "../types/Core";
 
 function HomeScreen({ navigation }: HomeScreenNavigationProps) {
   return (
-    <SafeAreaView style={tw`bg-black w-full h-full`}>
+    <View style={tw`bg-black w-full h-full`}>
       <ImageBackground
         source={require("../assets/samuel-girven-gym-unsplash.jpg")}
         resizeMode="stretch"
@@ -16,31 +16,31 @@ function HomeScreen({ navigation }: HomeScreenNavigationProps) {
         imageStyle={tw`h-full w-full`}
       >
         <View style={tw`flex flex-col h-full justify-between`}>
-          <Text style={tw`text-center text-3xl font-bold text-white`}>FiveThreeOne</Text>
-          <View style={tw`flex flex-row mx-4 justify-between`}>
+          <Text style={tw`text-center text-3xl font-bold text-white mt-5`}>FiveThreeOne</Text>
+          <View style={tw`flex flex-row mx-4 justify-between mb-5`}>
             <Pressable
-              style={tw`flex flex-col p-2 border-2 border-white rounded-full`}
+              style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
               onPress={() => navigation.navigate("OneRepMax")}
             >
               <Text style={tw`text-xs text-white`}>Calc 1RM</Text>
               <Icon style={tw`mx-auto`} color="white" name="dumbbell" />
             </Pressable>
             <Pressable
-              style={tw`flex flex-col p-2 border-2 border-white rounded-full`}
+              style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
               onPress={() => navigation.navigate("MainLifts")}
             >
               <Text style={tw`text-xs text-white`}>Calc Cycle</Text>
               <Icon style={tw`mx-auto`} color="white" name="clock" />
             </Pressable>
             <Pressable
-              style={tw`flex flex-col p-2 border-2 border-white rounded-full`}
+              style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
               onPress={() => navigation.navigate("PersonalRecords")}
             >
               <Text style={tw`text-xs text-white`}>PRs</Text>
               <Icon style={tw`mx-auto`} color="white" name="clipboard" />
             </Pressable>
             <Pressable
-              style={tw`flex flex-col p-2 border-2 border-white rounded-full`}
+              style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
               onPress={CreateNewCycle}
             >
               <Text style={tw`text-xs text-white`}>Create Cylce</Text>
@@ -49,7 +49,7 @@ function HomeScreen({ navigation }: HomeScreenNavigationProps) {
           </View>
         </View>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 }
 
