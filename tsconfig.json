@@ -2,7 +2,9 @@
     "extends": "@tsconfig/react-native/tsconfig.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {},
-        "noImplicitAny": false
-    }
+        "paths": {
+            "*": ["*"],
+        },
+        "noImplicitAny": false,
+    },
 }
