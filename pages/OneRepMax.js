@@ -9,7 +9,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Button, Provider, Modal, Portal } from "react-native-paper";
 import RadioButtonRN from "radio-buttons-react-native";
-import { LiftSelectList } from "../models/Lifts";
+import { LiftList } from "../constants/Lifts";
+import { CreateCycle } from "../models/Cycle";
 
 function OneRepMax({ navigation }) {
   const [weight, setWeight] = React.useState();
@@ -19,6 +20,7 @@ function OneRepMax({ navigation }) {
 
   const showModal = () => {
     setVisible(true);
+    console.log(JSON.stringify(CreateCycle()))
     Keyboard.dismiss();
   };
   const hideModal = () => setVisible(false);
@@ -102,7 +104,7 @@ function GetORMValue(reps, weight) {
 }
 
 function getRadioButtonData() {
-  return LiftSelectList.map((x, i) => {
+  return LiftList.map((x, i) => {
     return { label: x.label };
   });
 }

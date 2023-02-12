@@ -1,11 +1,11 @@
-const LIFTS = {
+export const LIFTS = {
     DEADLIFT: "deadlift",
     BENCHPRESS: "benchPress",
     OVERHEADPRESS: "overHeadPress",
     BACKSQUAT: "backSquat"
   };
 
-  export const LiftSelectList = [
+  export const LiftList = [
     {
         label: "Dead Lift",
         value: LIFTS.DEADLIFT,
