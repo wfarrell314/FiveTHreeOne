@@ -26,6 +26,7 @@ export async function getData(id: any) {
 export async function getAllKeys() {
   let keys: any = []
   try {
+    // Do we want to do anything with this variable? Return?
     keys = await AsyncStorage.getAllKeys()
   } catch(e) {
     console.log(e)

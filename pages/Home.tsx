@@ -26,6 +26,13 @@ function HomeScreen({ navigation }: HomeScreenNavigationProps) {
             </Pressable>
             <Pressable
               style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
+              onPress={CreateNewCycle}
+            >
+              <Text style={tw`text-xs text-white`}>Create Cylce</Text>
+              <Icon style={tw`mx-auto`} color="white" name="weight-hanging" />
+            </Pressable>
+            <Pressable
+              style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
               onPress={() => navigation.navigate("MainLifts")}
             >
               <Text style={tw`text-xs text-white`}>Calc Cycle</Text>
@@ -37,13 +44,6 @@ function HomeScreen({ navigation }: HomeScreenNavigationProps) {
             >
               <Text style={tw`text-xs text-white`}>PRs</Text>
               <Icon style={tw`mx-auto`} color="white" name="clipboard" />
-            </Pressable>
-            <Pressable
-              style={tw`flex flex-col p-2 bg-black border-2 border-white rounded-full`}
-              onPress={CreateNewCycle}
-            >
-              <Text style={tw`text-xs text-white`}>Create Cylce</Text>
-              <Icon style={tw`mx-auto`} color="white" name="weight-hanging" />
             </Pressable>
           </View>
         </View>
