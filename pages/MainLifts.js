@@ -9,11 +9,14 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Provider, } from "react-native-paper";
 import tw from 'twrnc';
-import { GridTitles, GridWeeks, GridReps, GridSets } from "../models/Lifts";
+import { GridTitles, GridWeeks, GridReps, GridSets } from "../constants/Lifts";
 
 const MainLifts = () => {
     const [max, setMax] = React.useState('0');
     const calc = (percentage) => {
+        if (Number(max) > 999) {
+            return 'NO';
+        }
         const ninetyPercent = Number(max) * .9;
         const roundedNumber = Math.round(((ninetyPercent / 100) * percentage).toFixed(0) / 5) * 5;
         return String(roundedNumber);

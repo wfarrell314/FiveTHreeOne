@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from "./pages/Home";
 import OneRepMax from "./pages/OneRepMax";
 import MainLifts from "./pages/MainLifts";
+import PRs from "./pages/PRs";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ function AppNavigator() {
         name="MainLifts"
         component={MainLifts}
         options={{ title: "Main Lifts"}}
+      />
+      <Stack.Screen
+        name="PersonalRecords"
+        component={PRs}
+        options={{ title: "Personal Records"}}
       />
     </Stack.Navigator>
   );
