@@ -4,40 +4,33 @@ import { LiftList } from "../constants/Lifts";
       16 lifts -- Lift Date -- Week -- AMRAP -- Type -- ORM
   */
 
-export function CreateCycle() {
-  const liftsObject = AddLifts();
+export const NewCycle = {
+  cycleDate: new Date(),
+  weeks: AddWeeks(),
+};
 
-  //   return {
-  //     cycleDate: new Date(),
-  //     lifts: () => {liftsObject}
-  //   };
+function AddWeeks() {
+  let weeks = [];
+
+  for (let i = 0; i < 4; i++) {
+    weeks = [...weeks, Week(i + 1)];
+  }
+
+  return weeks;
 }
 
-function AddLifts() {
-  const lifts = LiftList.foreach(lift => {
-    let liftORM = lift.value + "ORM";
-
-    return {
-      [lift.value]: {
-        [liftORM]: undefined,
-        lifts: [
-          Lift(lift.value, 1, liftORM),
-          Lift(lift.value, 2, liftORM),
-          Lift(lift.value, 3, liftORM),
-          Lift(lift.value, 4, liftORM),
-        ],
-      },
-    };
-});
-  console.log(JSON.stringify(lifts));
+function Week(weekNumber) {
+  return LiftList.map((x, i) => {
+    return Lift(x.value, weekNumber);
+  });
 }
 
-function Lift(type, week, orm) {
+function Lift(type, week) {
   return {
-    liftDate: undefined,
+    liftDate: new Date(),
     type: type,
     week: week,
-    Amrap: undefined,
-    ORM: orm,
+    amrap: 0,
+    orm: 0,
   };
 }

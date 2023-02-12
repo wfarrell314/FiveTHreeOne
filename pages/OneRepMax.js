@@ -10,7 +10,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Button, Provider, Modal, Portal } from "react-native-paper";
 import RadioButtonRN from "radio-buttons-react-native";
 import { LiftList } from "../constants/Lifts";
-import { CreateCycle } from "../models/Cycle";
 
 function OneRepMax({ navigation }) {
   const [weight, setWeight] = React.useState();
@@ -19,8 +18,8 @@ function OneRepMax({ navigation }) {
   const [visible, setVisible] = React.useState(false);
 
   const showModal = () => {
+    setChecked(undefined)
     setVisible(true);
-    console.log(JSON.stringify(CreateCycle()))
     Keyboard.dismiss();
   };
   const hideModal = () => setVisible(false);
@@ -108,6 +107,7 @@ function getRadioButtonData() {
     return { label: x.label };
   });
 }
+
 
 const styles = StyleSheet.create({
   Container: {

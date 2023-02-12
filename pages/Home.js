@@ -1,6 +1,8 @@
 import { Button, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import tw from 'twrnc';
+import tw from "twrnc";
+import { NewCycle } from "../models/Cycle";
+import { Insert } from "../localDB/mongoDB";
 
 function HomeScreen({ navigation }) {
   return (
@@ -19,9 +21,15 @@ function HomeScreen({ navigation }) {
           title="PRs"
           onPress={() => navigation.navigate("PersonalRecords")}
         />
+        <Button title="Create New Cycle" onPress={CreateNewCycle} />
       </View>
     </SafeAreaView>
   );
+}
+
+function CreateNewCycle() {
+
+  Insert(NewCycle());
 }
 
 export default HomeScreen;
