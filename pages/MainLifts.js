@@ -25,7 +25,7 @@ const MainLifts = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <SafeAreaView style={tw`flex-1`}>
                 <Provider>
-                    <Text style={tw`text-2xl self-center`}>Enter Your 1RM: {max}</Text>
+                    <Text style={tw`text-2xl self-center`}>Enter Your 1RM: {Number(max) > 999 ? 'MAAAN' : max}</Text>
                     <TextInput
                         keyboardType="numeric"
                         style={tw`mx-8 my-6`}
@@ -52,7 +52,7 @@ const MainLifts = () => {
                                 <Text style={tw`text-lg text-center`}>{GridReps[0]}</Text>
                             </Column>
                             <Column>
-                                <Text style={tw`text-sm text-center`}>{calc(65)},{calc(75)},{calc(85)}+</Text>
+                                <Text style={tw`text-sm text-center my-auto`}>{calc(65)},{calc(75)},{calc(85)}+</Text>
                             </Column>
                         </Row>
                         <Row>
@@ -66,7 +66,7 @@ const MainLifts = () => {
                                 <Text style={tw`text-lg text-center`}>{GridReps[1]}</Text>
                             </Column>
                             <Column>
-                                <Text style={tw`text-sm text-center`}>{calc(70)},{calc(80)},{calc(90)}+</Text>
+                                <Text style={tw`text-sm text-center my-auto`}>{calc(70)},{calc(80)},{calc(90)}+</Text>
                             </Column>
                         </Row>
                         <Row>
@@ -80,7 +80,7 @@ const MainLifts = () => {
                                 <Text style={tw`text-lg text-center`}>{GridReps[2]}</Text>
                             </Column>
                             <Column>
-                                <Text style={tw`text-sm text-center`}>{calc(75)},{calc(85)},{calc(95)}+</Text>
+                                <Text style={tw`text-sm text-center my-auto`}>{calc(75)},{calc(85)},{calc(95)}+</Text>
                             </Column>
                         </Row>
                         <Row>
@@ -94,7 +94,7 @@ const MainLifts = () => {
                                 <Text style={tw`text-lg text-center`}>{GridReps[3]}</Text>
                             </Column>
                             <Column>
-                                <Text style={tw`text-sm text-center`}>{calc(40)},{calc(50)},{calc(60)}</Text>
+                                <Text style={tw`text-sm text-center my-auto`}>{calc(40)},{calc(50)},{calc(60)}</Text>
                             </Column>
                         </Row>
                     </View>
