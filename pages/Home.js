@@ -2,7 +2,7 @@ import { Button, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { NewCycle } from "../models/Cycle";
-import { Insert } from "../localDB/mongoDB";
+import { storeData, getData, getAllKeys, clearAll } from "../localDB/localDB";
 
 function HomeScreen({ navigation }) {
   return (
@@ -27,9 +27,11 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function CreateNewCycle() {
-
-  Insert(NewCycle());
+async function CreateNewCycle() {
+   //const cycle = NewCycle;
+  //storeData(NewCycle)
+  //console.log(await getAllKeys())
+  //clearAll()
 }
 
 export default HomeScreen;
