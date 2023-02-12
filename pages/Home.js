@@ -11,6 +11,10 @@ function HomeScreen({ navigation }) {
           title="Calculate One Rep Max"
           onPress={() => navigation.navigate("OneRepMax")}
         />
+        <Button
+          title="Main Lifts"
+          onPress={() => navigation.navigate("MainLifts")}
+        />
       </View>
     </SafeAreaView>
   );
