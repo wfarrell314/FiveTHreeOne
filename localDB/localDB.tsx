@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { KeyValuePair } from '@react-native-async-storage/async-storage/lib/typescript/types';
 
 // Documentation for using AsyncStorage
 // https://react-native-async-storage.github.io/async-storage/docs/api
@@ -55,6 +56,16 @@ export const getPR = async (lift: string) => {
   }
 }
 
+export const getMultiplePRs = async (lifts: string[]) => {
+  let values:any = [];
+  try {
+    values = await AsyncStorage.multiGet(lifts)
+    return values;
+  } catch(e) {
+    console.log(e);
+  }
+}
+
 // This will essentially remove everything from native storage and wipe the store
 export async function clearAll() {
   try {
@@ -62,5 +73,4 @@ export async function clearAll() {
   } catch(e) {
     console.log(e)
   }
-
 }
